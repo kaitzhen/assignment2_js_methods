@@ -28,9 +28,13 @@ Array.prototype.mySome = function(callback) {
 };
   
   // REDUCE //
-  Array.prototype.myReduce = function() {
-    // Place your code here.
-  };
+Array.prototype.myReduce = function(callback,initVal) {
+  let result = initVal;  //=prev val
+  for(let index=0; index<this.length;index++) {
+      result=callback(result,this[index],index,this);
+  }
+  return result;
+};
   
   // INCLUDES //
   Array.prototype.myIncludes = function() {
