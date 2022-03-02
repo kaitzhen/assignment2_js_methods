@@ -99,9 +99,29 @@ Array.prototype.myPush = function(...args) {
 };
   
   // LASTINDEXOF //
-  Array.prototype.myLastIndexOf = function() {
-    // Place your code here.
-  };
+Array.prototype.myLastIndexOf = function(searchElement,fromIndex=(this.length-1)) {
+  if(this.length == 0) {  //if empty
+      return -1;
+  }
+
+  if(fromIndex < 0) {              //edge cases for fromIndex
+      fromIndex+=(this.length-1);
+      if(fromIndex<0) {
+          return -1;
+      }
+  } else if(fromIndex > this.length) {
+      fromIndex=this.length-1;
+  }
+
+  for(let index = fromIndex; index>=0;index--) {
+      
+      if(this[index] === searchElement) {
+         return index;
+      } 
+  }
+  return -1;
+  
+};
   
   // KEYS //
   Object.myKeys = function() {
