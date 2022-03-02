@@ -123,12 +123,22 @@ Array.prototype.myLastIndexOf = function(searchElement,fromIndex=(this.length-1)
   
 };
   
-  // KEYS //
-  Object.myKeys = function() {
-    // Place your code here.
-  };
-  
-  // VALUES //
-  Object.myValues = function() {
-    // Place your code here.
-  };
+// KEYS //
+
+Object.myKeys = function(obj) {
+  let keys = [];
+  Object.entries(obj).forEach(entry => {
+      keys.push(String(entry[0]));
+  });
+  return keys;
+};
+
+
+// VALUES //
+Object.myValues = function(obj) {
+  let values = [];
+  Object.entries(obj).forEach(entry => {
+      values.push(entry[1]);
+  });
+  return values;
+};
