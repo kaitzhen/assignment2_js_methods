@@ -61,9 +61,30 @@ Array.prototype.myIncludes = function(searchElement,fromIndex=0) {
 };
   
   // INDEXOF //
-  Array.prototype.myIndexOf = function() {
-    // Place your code here.
-  };
+Array.prototype.myIndexOf = function(searchElement,fromIndex=0) {
+  if(this.length==0) {
+      //console.log("empty array");   //if array empty
+      return -1;
+  }
+  //console.log(this);
+  if(fromIndex < 0) {              //edge cases for fromIndex
+      fromIndex+=this.length;
+      if(fromIndex<0) {
+          fromIndex = 0;
+      }
+  } else if(fromIndex > this.length) {
+      return -1;
+  }
+  //console.log(`search element = ${searchElement}`);
+  for(let index=fromIndex; index<this.length;index++) {
+      //console.log(this[index]);
+      if(this[index] === searchElement) {
+         return index;
+      } 
+  }
+  return -1;
+};
+
   
   // PUSH //
   Array.prototype.myPush = function() {
