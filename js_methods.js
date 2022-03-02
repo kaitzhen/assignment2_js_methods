@@ -15,14 +15,26 @@ Array.prototype.myEach = function(callback) {
 };
   
   // SOME //
-  Array.prototype.mySome = function() {
-    // Place your code here.
-  };
+Array.prototype.mySome = function(callback) {
+  if(this.length==0) {    //if array empty
+      return false;
+  }
+  for(let index = 0; index < this.length; index++) {
+      if(callback(this[index], index, this)) {
+          return true;
+      }
+  }
+  return false;
+};
   
   // REDUCE //
-  Array.prototype.myReduce = function() {
-    // Place your code here.
-  };
+Array.prototype.myReduce = function(callback,initVal) {
+  let result = initVal;  //=prev val
+  for(let index=0; index<this.length;index++) {
+      result=callback(result,this[index],index,this);
+  }
+  return result;
+};
   
   // INCLUDES //
   Array.prototype.myIncludes = function() {
